@@ -1,12 +1,12 @@
-pris = [30, 28, 25, 23]
 vikt = float(input("Hur mycket väger paketet(kg): "))
 
-match [vikt < 2, 2 <= vikt < 6, 6 <= vikt < 12, vikt >= 12]:
-    case True, False, False, False:
-        print("Det kommer att kosta " + str(pris[0] * vikt) + " Kr")
-    case False, True, False, False:
-        print("Det kommer att kosta " + str(pris[1] * vikt) + " Kr")
-    case False, False, True, False:
-        print("Det kommer att kosta " + str(pris[2] * vikt) + " Kr")
-    case False, False, False, True:
-        print("Det kommer att kosta " + str(pris[3] * vikt) + " Kr")
+sum = 0
+pris = 0
+
+if vikt < 12:
+    pris = 25 + 2 * (vikt < 2) + 3 * (vikt < 6)
+else:
+    pris = 23 * vikt
+sum += pris * vikt
+
+print("Det kommer att kosta " + str(sum) + " kr.")
